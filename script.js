@@ -79,7 +79,7 @@ function startGame() {
     startBtn.innerHTML = "start!";
     startBtn.disabled = false;
     levels.style.visibility = "visible";
-  }, 15000);
+  }, 30000);
 }
 
 // Function to update the score on clicking the mole

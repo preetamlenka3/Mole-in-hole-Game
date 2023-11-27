@@ -110,13 +110,9 @@ h1 {
     transition: all 0.4s;
     cursor: pointer;
 }
-
-/* Style for the mole when it pops up from a hole and becomes visible */
 .hole.up .mole {
     top: 0;
 }
-
-/* adjust for small screen size */
 @media (max-width: 768px) {
     h1 {
         padding: 20px;
