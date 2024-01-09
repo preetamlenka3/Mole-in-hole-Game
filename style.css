@@ -1,91 +1,93 @@
-/* Reset some default styles */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
-/* Improved color scheme and modern styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #34495e; /* Dark background color */
-    color: #ecf0f1; /* Light text color */
+    font-family: cursive;
+    background-color: #191919;
+    color: #fff;
 }
 
 h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 5rem;
     line-height: 1;
-    margin-top: 2rem;
+    margin-top: 45px;
 }
 
 .score {
-    color: #2ecc71; /* Green score color */
-    background: #34495e;
-    padding: 0.8rem;
+    color: #4caf50;
+    background: #302f2fed;
+    padding: 1rem;
+    line-height: 1;
     border-radius: 1rem;
     display: inline-block;
 }
 
-.control {
-    margin: 2rem;
+.control{
+    margin: 5px;
     text-align: center;
 }
 
-/* Stylish Start button with hover effect */
 .start-btn {
-    padding: 1rem 2rem;
+    padding: 10px 25px;
     outline: none;
-    font-size: 1.5rem;
-    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient background */
-    color: #ecf0f1;
-    border: 0;
-    border-radius: 0.5rem;
+    font-size: 24px;
+    background: #c2185b;
+    color: #fff;
+    border: 0px;
+    box-shadow: 1px 2px 4px #c2185bb0;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .start-btn:hover {
-    background: linear-gradient(to right, #2980b9, #3498db); /* Change gradient on hover */
+    background: #187bc2;
+    box-shadow: 1px 2px 4px #185fc2b0;
 }
 
 .levels {
-    font-size: 1.2rem;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
 }
 
-/* Style for each difficulty level with improved colors */
+/* Style for each difficulty level */
 .levels>div {
-    margin: 1rem;
-    color: #f39c12; /* Yellow for Easy */
+    margin: 20px;
+}
+
+.levels>div:nth-child(1) {
+    color: #00ff00;
 }
 
 .levels>div:nth-child(2) {
-    color: #e67e22; /* Orange for Medium */
+    color: #ffd24e;
 }
 
 .levels>div:nth-child(3) {
-    color: #d35400; /* Red for Hard */
+    color: #ff0000;
 }
 
-/* Stylish game board with improved mole and hole images */
+/* Style for the game board */
 .game {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 600px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
+/* Style for each hole on the game board */
 .hole {
     flex: 1 0 33.33%;
     overflow: hidden;
     position: relative;
-    margin: 0.5rem;
 }
 
+/* Style for the mole inside each hole */
 .hole:after {
     background: url("img/hole1.png") bottom center no-repeat;
     background-size: contain;
@@ -95,10 +97,9 @@ h1 {
     position: absolute;
     z-index: 2;
     bottom: -30px;
-    transition: transform 0.3s ease; /* Add a subtle animation to the hole */
 }
 
-/* Modern styling for the mole */
+/* Style for the mole when it pops up from a hole */
 .mole {
     position: absolute;
     top: 100%;
@@ -106,40 +107,37 @@ h1 {
     height: 100%;
     background: url("img/mole.png") bottom center no-repeat;
     background-size: 60%;
-    transition: all 0.4s ease;
+    transition: all 0.4s;
     cursor: pointer;
 }
-
-/* Lift the mole when it pops up from a hole */
 .hole.up .mole {
     top: 0;
-    transform: scale(1.1); /* Add a scale effect to the mole */
 }
-
-/* Responsive styles */
 @media (max-width: 768px) {
     h1 {
+        padding: 20px;
         font-size: 2rem;
-        margin-top: 1rem;
     }
 
     .score {
-        margin: 1rem;
-        font-size: 1rem;
+        margin: 20px;
+    }
+
+    .hole::after {
+        bottom: -22px;
+        margin: 6px;
     }
 
     .start-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1.2rem;
+        padding: 8px 20px;
     }
 
     .levels>div {
-        margin: 0.5rem;
-        font-size: 1rem;
+        margin: 10px;
     }
 
     .game {
         width: 90%;
-        margin-top: 1rem;
+        height: 300px;
     }
 }
