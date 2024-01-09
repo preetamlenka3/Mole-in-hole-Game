@@ -1,95 +1,93 @@
+/* Reset some default styles */
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Improved color scheme */
 body {
-    font-family: cursive;
-    background-color: #191919;
-    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
 }
 
 h1 {
     text-align: center;
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 1;
-    margin-top: 45px;
+    margin-top: 2rem;
 }
 
 .score {
-    color: #4caf50;
-    background: #302f2fed;
-    padding: 1rem;
-    line-height: 1;
+    color: #2ecc71;
+    background: #34495e;
+    padding: 0.8rem;
     border-radius: 1rem;
     display: inline-block;
 }
 
-.control{
-    margin: 5px;
+.control {
+    margin: 2rem;
     text-align: center;
 }
 
+/* Stylish Start button with hover effect */
 .start-btn {
-    padding: 10px 25px;
+    padding: 1rem 2rem;
     outline: none;
-    font-size: 24px;
-    background: #c2185b;
-    color: #fff;
-    border: 0px;
-    box-shadow: 1px 2px 4px #c2185bb0;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: #ecf0f1;
+    border: 0;
+    border-radius: 0.5rem;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .start-btn:hover {
-    background: #187bc2;
-    box-shadow: 1px 2px 4px #185fc2b0;
+    background: linear-gradient(to right, #2980b9, #3498db);
 }
 
 .levels {
-    font-size: 20px;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
 }
 
-/* Style for each difficulty level */
+/* Style for each difficulty level with improved colors */
 .levels>div {
-    margin: 20px;
-}
-
-.levels>div:nth-child(1) {
-    color: #00ff00;
+    margin: 1rem;
+    color: #f39c12;
 }
 
 .levels>div:nth-child(2) {
-    color: #ffd24e;
+    color: #e67e22;
 }
 
 .levels>div:nth-child(3) {
-    color: #ff0000;
+    color: #d35400;
 }
 
-/* Style for the game board */
+/* Stylish game board with improved mole and hole images */
 .game {
-    width: 600px;
-    height: 400px;
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
 }
 
-/* Style for each hole on the game board */
 .hole {
     flex: 1 0 33.33%;
     overflow: hidden;
     position: relative;
+    margin: 0.5rem;
 }
 
-/* Style for the mole inside each hole */
 .hole:after {
-    background: url("img/hole1.png") bottom center no-repeat;
+    background: url("https://placekitten.com/150/150") bottom center no-repeat; /* Replace with your hole image */
     background-size: contain;
     content: "";
     width: 100%;
@@ -99,45 +97,45 @@ h1 {
     bottom: -30px;
 }
 
-/* Style for the mole when it pops up from a hole */
 .mole {
     position: absolute;
     top: 100%;
     width: 100%;
     height: 100%;
-    background: url("img/mole.png") bottom center no-repeat;
+    background: url("https://placekitten.com/120/120") bottom center no-repeat; /* Replace with your mole image */
     background-size: 60%;
     transition: all 0.4s;
     cursor: pointer;
 }
+
 .hole.up .mole {
     top: 0;
 }
+
+/* Responsive styles */
 @media (max-width: 768px) {
     h1 {
-        padding: 20px;
         font-size: 2rem;
+        margin-top: 1rem;
     }
 
     .score {
-        margin: 20px;
-    }
-
-    .hole::after {
-        bottom: -22px;
-        margin: 6px;
+        margin: 1rem;
+        font-size: 1rem;
     }
 
     .start-btn {
-        padding: 8px 20px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
     }
 
     .levels>div {
-        margin: 10px;
+        margin: 0.5rem;
+        font-size: 1rem;
     }
 
     .game {
         width: 90%;
-        height: 300px;
+        margin-top: 1rem;
     }
 }
