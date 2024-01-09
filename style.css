@@ -72,6 +72,7 @@ h1 {
 }
 
 /* Stylish game board with improved mole and hole images */
+/* Stylish game board with improved mole and hole images */
 .game {
     max-width: 800px;
     margin: 0 auto;
@@ -86,8 +87,9 @@ h1 {
     margin: 0.5rem;
 }
 
+/* Corrected paths to images */
 .hole:after {
-    background: url("img/hole1.png") bottom center no-repeat; /* Replace with your hole image */
+    background: url("./img/hole1.png") bottom center no-repeat;
     background-size: contain;
     content: "";
     width: 100%;
@@ -102,7 +104,7 @@ h1 {
     top: 100%;
     width: 100%;
     height: 100%;
-    background: url("img/mole.png") bottom center no-repeat; /* Replace with your mole image */
+    background: url("./img/mole.png") bottom center no-repeat;
     background-size: 60%;
     transition: all 0.4s;
     cursor: pointer;
@@ -111,6 +113,7 @@ h1 {
 .hole.up .mole {
     top: 0;
 }
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
