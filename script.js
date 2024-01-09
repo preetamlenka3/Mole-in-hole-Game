@@ -4,6 +4,7 @@ const scoreBoard = document.querySelector(".score");
 const moles = document.querySelectorAll(".mole");
 const startBtn = document.querySelector(".start-btn");
 const levels = document.querySelector(".levels");
+const game = document.querySelector(".game");
 
 let lastHole;
 let timeUp = false;
@@ -11,21 +12,11 @@ let score = 0;
 
 // Function to get the selected radio button value
 function difficultyLevel() {
-  const ele = document.querySelector('input[name="level"]:checked');
-  return ele ? ele.id : null;
-}
-
-// Function to get difficulty values based on the selected level
-function getDifficultyValues(difficulty) {
-  switch (difficulty) {
-    case "easy":
-      return { show: 500, hide: 1500 };
-    case "medium":
-      return { show: 200, hide: 1000 };
-    case "hard":
-      return { show: 100, hide: 800 };
-    default:
-      return { show: 500, hide: 1500 }; // Default values
+  const ele = document.getElementsByName("level");
+  for (let i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+      return ele[i].id;
+    }
   }
 }
 
@@ -60,13 +51,23 @@ function peep(show, hide) {
 
 // Function to start the game
 function startGame() {
+  let show, hide;
   const difficulty = difficultyLevel();
-  const { show, hide } = getDifficultyValues(difficulty);
+  if (difficulty === "easy") {
+    show = 500;
+    hide = 1500;
+  } else if (difficulty === "medium") {
+    show = 200;
+    hide = 1000;
+  } else {
+    show = 100;
+    hide = 800;
+  }
 
   // hiding start button during game running
   scoreBoard.textContent = 0;
   timeUp = false;
-  startBtn.textContent = "running..";
+  startBtn.innerHTML = "running..";
   startBtn.disabled = true;
   levels.style.visibility = "hidden";
   score = 0;
@@ -75,7 +76,7 @@ function startGame() {
   peep(show, hide);
   setTimeout(() => {
     timeUp = true;
-    startBtn.textContent = "start!";
+    startBtn.innerHTML = "start!";
     startBtn.disabled = false;
     levels.style.visibility = "visible";
   }, 30000);
@@ -92,4 +93,4 @@ function hitTheMole(e) {
 }
 
 // Adding the click event listener to all the moles
-moles.forEach((mole) => mole.addEventListener("click", (e) => hitTheMole(e)));
+moles.forEach((mole) => mole.addEventListener("click", hitTheMole));
